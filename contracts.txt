@@ -1,6 +1,7 @@
 4RDW,Victoria,Prince George, Flowers
 8EKD,Vancouver,Victoria,Vegetable
 3HQC,Seattle,Vancouver,Pharmaceutical
-9KL2,San Francisco,Edmonton,Commerce
-9LB9,Montpelier,New York City,Stamps
+9KLF,San Francisco,Edmonton,Commerce
+9LBR,Montpelier,New York City,Stamps
 7EWH,Jackson,St. Clement,Cinnamon Buns
+7MLK,Jackson,New York City,Sesame Seed Bagels

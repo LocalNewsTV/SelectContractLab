@@ -10,6 +10,8 @@ package selectcontract;
  */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 class ContractController {
     private final ContractView theView;
@@ -22,6 +24,8 @@ class ContractController {
         this.theView.addPrevListener(new PrevButtonListener());
         this.theView.addBidListener(new BidButtonListener());
         this.theView.addNextListener(new NextButtonListener());
+        this.theView.addcomboBoxListener(new ComboListener());
+        this.theView.setOriginCityList(this.theModel.getOriginCityList());
         setUpDisplay();
     }
     
@@ -89,20 +93,27 @@ class ContractController {
             class BidButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (theModel.getCurrentContractNum() == 0){
-                return;
-            }
-            
             try {
-                //Retrieve the contract behind the currently displayed contract
-                theModel.prevContract();
-            }
-            catch (Exception ex) {
+                ConfirmBid cb;
+                cb = new ConfirmBid(theView, true, theModel.getTheContract());
+                cb.setLocationRelativeTo(null);
+                cb.setVisible(true);
+            } catch (Exception ex) {
                 System.out.println(ex);
-                theView.displayErrorMessage("Error: There is a problem setting a previous contract.");
+                theView.displayErrorMessage("Ettor: the numbers entered must be integers.");
             }
-            setUpDisplay();
         }
     }
-
+    class ComboListener implements ItemListener {
+        @Override
+        public void itemStateChanged(ItemEvent e){
+        System.out.println(e.getItem().toString());
+        if(e.getStateChange() == ItemEvent.SELECTED) {}
+            String selectedCity = e.getItem().toString();
+            System.out.println(selectedCity);
+            theModel.updateContractList(selectedCity);
+            setUpDisplay();
+        }
+        
+    }
 }

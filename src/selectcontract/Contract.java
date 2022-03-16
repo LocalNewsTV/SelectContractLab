@@ -20,6 +20,12 @@ public class Contract {
         this.destCity = destCity;
         this.orderItem = orderItem;
     }
+    public boolean contains (String argument){
+        if(argument.equals(originCity)){
+            return true;
+        }
+        return false;
+    }
     public String getContractID(){
         return contractID;
     }
