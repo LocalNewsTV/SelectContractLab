@@ -27,18 +27,15 @@ import javax.swing.JOptionPane;
 public class AddContract extends javax.swing.JDialog {
     private String[] destList;
     private String[] origList;
-    private ContractView theView;
-    private ContractModel theModel;
-    final private String fileName = "C:\\Users\\Rawrg\\OneDrive\\School\\SelectContractLab08\\contracts.txt";
+    final private String fileName = "./contracts.txt";
     //AddContractListener contractCreate = new AddContractListener();
     /**
      * Creates new form AddContract
      */
-    public AddContract(JFrame f, boolean m, ContractModel theModel) {
+    //public AddContract(JFrame f, boolean m, ContractModel theModel) {
+    public AddContract(JFrame f, boolean m){
         super(f, m);
         initComponents();
-        this.theView = theView;
-        this.theModel = theModel;
     }
 
     /**
@@ -241,8 +238,8 @@ public class AddContract extends javax.swing.JDialog {
                         jContractID.setText("");
                         jGoods.setText("");
                         Contract newCon = new Contract(contractID, origCity, destCity, goods);
-                        theModel.addContract(newCon);
-                        theModel.originCityList.add(origCity);
+                        //theModel.addContract(newCon);
+                        //theModel.originCityList.add(origCity);
                         
                         
                     }

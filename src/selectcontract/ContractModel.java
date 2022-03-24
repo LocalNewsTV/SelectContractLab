@@ -20,7 +20,7 @@ class ContractModel {
     private SortedSet<String> destinationCityList;
     public SortedSet<String> origCityContract;
     private int contractCounter;
-    String fileName = "C:\\Users\\Rawrg\\OneDrive\\School\\SelectContractLab08\\contracts.txt";
+    String fileName = "./contracts.txt";
     public static final int NUMBER_OF_CONTRACT_ATTRIBUTES = 4;
     public static final int INDEX_OF_CONTRACT_ID = 0;
     public static final int INDEX_OF_ORIGIN_CITY = 1;

@@ -109,7 +109,7 @@ class ContractController {
         @Override
         public void actionPerformed(ActionEvent e){
             try{
-                AddContract ac = new AddContract(theView, true, theModel);
+                AddContract ac = new AddContract(theView, true);
                 ac.setLocationRelativeTo(null);
                 ac.setVisible(true);
             } catch (Exception ex){
