@@ -3,5 +3,11 @@
 3HQC,Seattle,Vancouver,Pharmaceutical
 9KLF,San Francisco,Edmonton,Commerce
 9LBR,Montpelier,New York City,Stamps
-7EWH,Jackson,St. Clement,Cinnamon Buns
-7MLK,Jackson,New York City,Sesame Seed Bagels
+5OLD,Prince George,Victoria,Trade Secrets
+5OIL,Nanaimo,Prince George,Gently Used Dirt
+5ALT,Seattle,Prince George,Himalayan Sea Salt
+4FSD,Victoria,Nanaimo,dafafaw
+7EAR,Victoria,Nanaimo,Salad
+2KLD,Victoria,Nanaimo,Lake
+9OIL,Victoria,Nanaimo,Olive Oil
+8UHJ,Victoria,Nanaimo,Monitors

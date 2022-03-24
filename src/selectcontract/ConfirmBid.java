@@ -4,8 +4,6 @@
  */
 package selectcontract;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -23,7 +21,7 @@ import javax.swing.SpinnerNumberModel;
  * @author Rawrg
  */
 public class ConfirmBid extends javax.swing.JDialog {
-
+    final private String fileName = "C:\\Users\\Rawrg\\OneDrive\\School\\SelectContractLab08\\MyContractBids.txt";
     /**
      * Creates new form java
      */
@@ -201,7 +199,7 @@ public class ConfirmBid extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSaveActionPerformed
-        String fileName = "C:\\Users\\Rawrg\\OneDrive\\School\\SelectContract\\MyContractBids.txt";
+
         FileWriter fileWriter;
         try {
             if(!jTextName.getText().equals("") && jTextName.getText().matches("[a-zA-Z]+")){
@@ -224,6 +222,7 @@ public class ConfirmBid extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_JButtonSaveActionPerformed
 
+    
     private void JButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonCancelActionPerformed
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_JButtonCancelActionPerformed

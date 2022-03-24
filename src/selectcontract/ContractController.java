@@ -14,8 +14,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 class ContractController {
-    private final ContractView theView;
-    private final ContractModel theModel;
+    private ContractView theView;
+    private ContractModel theModel;
     
     ContractController(ContractView theView, ContractModel theModel) {
         this.theView = theView;
@@ -26,6 +26,7 @@ class ContractController {
         this.theView.addNextListener(new NextButtonListener());
         this.theView.addcomboBoxListener(new ComboListener());
         this.theView.setOriginCityList(this.theModel.getOriginCityList());
+        this.theView.addMenuAddContractListener(new AddContractListener());
         setUpDisplay();
     }
     
@@ -100,10 +101,28 @@ class ContractController {
                 cb.setVisible(true);
             } catch (Exception ex) {
                 System.out.println(ex);
-                theView.displayErrorMessage("Ettor: the numbers entered must be integers.");
+                theView.displayErrorMessage("Error: the numbers entered must be integers.");
             }
         }
     }
+    class AddContractListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            try{
+                AddContract ac = new AddContract(theView, true, theModel);
+                ac.setLocationRelativeTo(null);
+                ac.setVisible(true);
+            } catch (Exception ex){
+                System.out.println(ex);
+                theView.displayErrorMessage("Error!");
+            } finally{
+                theView.setOriginCityList(theModel.getOriginCityList());
+                theModel = new ContractModel();
+                setUpDisplay();
+            }
+        }
+    }
+      
     class ComboListener implements ItemListener {
         @Override
         public void itemStateChanged(ItemEvent e){

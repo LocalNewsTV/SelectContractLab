@@ -49,6 +49,11 @@ public class ContractView extends javax.swing.JFrame {
         jLabelOriginCity = new javax.swing.JLabel();
         jLabelDestCity = new javax.swing.JLabel();
         jLabelOrderItem = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jQuit = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        JMenuAddContract = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bid on Contracts");
@@ -129,7 +134,6 @@ public class ContractView extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addComponent(jPrevButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBidButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,22 +152,22 @@ public class ContractView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabelContractID))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabelOriginCity))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabelDestCity))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabelOrderItem))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPrevButton)
                     .addComponent(jBidButton)
@@ -176,6 +180,32 @@ public class ContractView extends javax.swing.JFrame {
         jLabel1.getAccessibleContext().setAccessibleName("ContractID");
         jLabel1.getAccessibleContext().setAccessibleDescription("");
         jLabelContractCount.getAccessibleContext().setAccessibleName("");
+
+        jMenu1.setText("File");
+
+        jQuit.setText("Quit");
+        jQuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jQuitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jQuit);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        JMenuAddContract.setText("New Contract");
+        JMenuAddContract.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMenuAddContractActionPerformed(evt);
+            }
+        });
+        jMenu2.add(JMenuAddContract);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,10 +247,14 @@ public class ContractView extends javax.swing.JFrame {
     
     void addBidListener(ActionListener listenForBidButton) {
         jBidButton.addActionListener(listenForBidButton);
-    }
+    } 
     
     void addcomboBoxListener(ItemListener listenForComboBox){
         jComboOriginCity.addItemListener(listenForComboBox);
+    }
+    
+    void addMenuAddContractListener(ActionListener listenForAddContract){
+        JMenuAddContract.addActionListener(listenForAddContract);
     }
     
     void displayErrorMessage(String errorMessage) {
@@ -247,7 +281,7 @@ public class ContractView extends javax.swing.JFrame {
         jLabelContractCount.setText(contractCount);
     }
     void setOriginCityList(String[] cityList) {
-        final DefaultComboBoxModel model = new DefaultComboBoxModel(cityList);
+        DefaultComboBoxModel model = new DefaultComboBoxModel(cityList);
         
         this.jComboOriginCity.setModel(model);
     }
@@ -276,11 +310,20 @@ public class ContractView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPrevButtonActionPerformed
 
+    private void JMenuAddContractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuAddContractActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JMenuAddContractActionPerformed
+
+    private void jQuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jQuitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jQuitActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JMenuAddContract;
     private javax.swing.JButton jBidButton;
     private javax.swing.JComboBox<String> jComboOriginCity;
     private javax.swing.JLabel jLabel1;
@@ -293,9 +336,13 @@ public class ContractView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDestCity;
     private javax.swing.JLabel jLabelOrderItem;
     private javax.swing.JLabel jLabelOriginCity;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JButton jNextButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jPrevButton;
+    private javax.swing.JMenuItem jQuit;
     // End of variables declaration//GEN-END:variables
 }
